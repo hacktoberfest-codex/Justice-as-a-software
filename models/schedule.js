@@ -7,11 +7,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/hack')
 const schedule_schema = new mongoose.Schema({
     Date : String ,
     Strart : String ,
-    End : String ,
-    Connect : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Case"
-    }
+    End : String
 })
 
 const Schedule = mongoose.model("Schedule",schedule_schema)

@@ -19,12 +19,7 @@ const algo_schema = new mongoose.Schema({
         type : Boolean
     },
 
-    Deadline : String ,
-
-    Connect : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Case"
-    }
+    Deadline : String 
 })
 
 const Algo = mongoose.model("Algo",algo_schema)

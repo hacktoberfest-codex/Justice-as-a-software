@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Algo = require("./algo")
 
 mongoose.connect('mongodb://127.0.0.1:27017/hack')
     .then(d=>console.log("case Connection Secured"))
@@ -21,7 +22,27 @@ const case_schema = new mongoose.Schema({
 
     Respondent : String ,
 
-    Case_Type : String 
+    Case_Type : String ,
+
+    Algo : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Algo"
+    },
+
+    Schedule : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Schedule"
+    },
+
+    Evidence_Pet : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Evidence"
+    },
+
+    Evidence_Res : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Evidence"
+    },
 })
 
 const Case = mongoose.model("Case",case_schema);
