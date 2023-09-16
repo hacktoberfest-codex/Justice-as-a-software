@@ -81,7 +81,7 @@ router.post("/:id/evidence/post", upload.array("img") , async(req,res)=>{
     req.files && push_evidence.Images.push({url : req.files[0].path , filename : req.files[0].filename});
     push_evidence.Case=find_case
     await push_evidence.save();
-    res.send("your")
+    res.redirect("/event")
 })
 
 module.exports = router;
