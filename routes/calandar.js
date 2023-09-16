@@ -2,11 +2,13 @@ const express = require("express")
 const router = express.Router()
 const {google} = require("googleapis")
 const dayjs = require("dayjs")
+require("dotenv").config()
 
 const calendar = google.calendar({
     version : "v3",
     auth : process.env.API_KEY
 })
+
 
 const oauth2Client = new google.auth.OAuth2(
     process.env.Client_ID,

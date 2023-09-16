@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+
+    <a href="/event/create">Create</a>
+    <a href="/event/Schedule">Schedule</a>
+    <a href="/event/Data">Data</a>
+    <a href="/event/Calandar">Calandar</a>
+
+    <div class="On-going-cases">
+        <ul style="display: flex; list-style-type: none;">
+            <li>Hearing&nbsp&nbsp&nbsp</li>
+            <li>Name&nbsp&nbsp&nbsp</li>
+            <li>Crime&nbsp&nbsp&nbsp</li>
+        </ul>
+    </div>
+
+    <div>
+        <ul>
+           <% for( let i of find_case ) { %>
+            <a href="/event/<%=  i._id %>">
+                <div style="display: flex; list-style-type: none;">
+                    <li style="margin-right: 15px;">
+                        <%= i.Hearing %>
+                    </li>
+                    <li style="margin-right: 15px;">
+                        <%= i.Name %>
+                    </li>
+                    <li style="margin-right: 15px;">
+                        <%= i.Crime %>
+                    </li>
+                </div>
+            </a>
+           <% } %>
+        </ul>
+    </div>
+</body>
+</html>
