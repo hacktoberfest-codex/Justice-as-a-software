@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/event/<%= find_case._id %>/evidence/post" enctype="multipart/form-data" method="post">
+
+        <select name="Belongings" id="Belongings">Belongings
+            <option value="Petioner">Petioner</option>
+            <option value="Respondent">Respondent</option>
+        </select>
+
+        <label for="Details"></label>
+        <input type="text" name="Details" id="" placeholder="Details">
+
+        <input type="file" name="img" id="img">
+
+        <button>Submit</button>
+
+   </form>
+
+</body>
+</html>

@@ -7,40 +7,27 @@
 </head>
 <body>
     
-    <a href="/event/evidence/<%= find_case._id %>/new">Add</a>
+    <a href="/event/<%= find_case._id %>/evidence/new">Add</a>
 
     <h1>Evidence</h1>
 
     <div>
         <h1>Respondent</h1>
 
-        <% if (msg) { %>
-            <h1> <%= msg %> </h1>
+        <% if (msg_1) { %>
+            <h1> <%= msg_1 %> </h1>
         <% } %>
 
-        <div>
-           <% if (find_Evidence_Res.length!==0) { %>
-                <% for( let i of find_Evidence_Res.Images  ) { %>
-                        <img src="<%= i.url %>" alt="">
-                <% } %>
-            <% } %>
-        </div>
+        
 
         <div>
             <h1>Petioner</h1>
 
-            <% if (msg) { %>
-                <h1> <%= msg %> </h1>
+            <% if (msg_2) { %>
+                <h1> <%= msg_2 %> </h1>
             <% } %>
 
-            <div>
-               <% if (find_Evidence_Pet!==0) { %>
-                
-                    <% for( let i of find_Evidence_Pet.Images  ) { %>
-                            <img src="<%= i.url %>" alt="">
-                    <% } %>
-                <% } %>
-            </div>
+        
         </div>
     </div>
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const {storage} = require("../cloudinary/cloud")
 
 const Case = require("../models/case");
 const Algo = require("../models/algo");
@@ -7,6 +8,9 @@ const Schedule = require("../models/schedule");
 const Evidence = require("../models/evidence");
 
 const dayjs = require("dayjs");
+const multer = require("multer")
+
+const upload = multer({storage})
 
 const day = []
 
@@ -48,14 +52,30 @@ router.get("/:id", async(req,res)=>{
 
 router.get("/:id/evidence", async(req,res)=>{
     const find_case = await Case.findById(req.params.id).populate("Evidence_Pet","Evidence_Res")
-    const msg = ""
-    if(find_case.Evidence.lenght===0){
-        msg = "Empty"
+    let msg_1 = ""
+    let msg_2 = ""
+    if(!find_case.Evidence_Pet){
+        msg_1 = "Empty"
+        msg_2 = "Empty"
     }
-    res.render("evidence",{find_case,msg});
+    console.log(find_case);
+    res.render("evidence",{find_case,msg_1,msg_2});
 })
 
+router.get("/:id/evidence/new", async(req,res)=>{
+    const find_case = await Case.findById(req.params.id)
+    res.render("AddEvidence",{find_case})
+})
 
+router.post("/:id/evidence/post", upload.array("img") , async(req,res)=>{
+    const find_case = await Case.findById(req.params.id)
+    const push_evidence = new Evidence({
+        Belongings : req.body.Belongings ,
+        Details : req.body.Details
+    })
+    req.files && console.log(req.files[0].filename);
+    res.send("your")
+})
 
 module.exports = router;
 
