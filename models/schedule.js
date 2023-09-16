@@ -5,5 +5,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/hack')
     .catch(err=> console.log("Schedule Connection Error"));
 
 const schedule_schema = new mongoose.model({
-    
+    Date : String ,
+    Strart : String ,
+    End : String ,
+    Room : Number
 })
+
+const Schedule = mongoose.model("Schedule",schedule_schema)
+module.exports = Schedule
