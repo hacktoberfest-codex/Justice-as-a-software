@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/event/create/case" method="post">
+
+        <input type="text" name="Name" id="Name" placeholder="Case Name">
+
+        <select name="Crime" id="Crime">
+            <option value="Civil">Civil</option>
+            <option value="Criminal">Criminal</option>
+        </select>
+
+        <label for="Petioner">Petioner</label>
+        <input type="text" name="Petioner" placeholder="Petioner">
+
+        <label for="Respondent">Respondent</label>
+        <input type="text" name="Respondent" placeholder="Respondent">
+
+        <label for="case_type">Case Type</label>
+        <input type="text" name="case_type" id="case_type">
+
+        <select name="Room" id="Room">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <select name="Priority" id="Priority">
+            <option value="Quick - High Priority">Quick - High Priority</option>
+            <option value="Slow - Low Priority">Slow - Low Priority</option>
+        </select>
+
+        <select name="Deadline" id="Deadline">
+            <option value="6-months">6-months</option>
+            <option value="year">year</option>
+            <option value="2-year">2-year</option>
+        </select>
+
+        <button>Submit</button>
+    </form>
+
+</body>
+</html>

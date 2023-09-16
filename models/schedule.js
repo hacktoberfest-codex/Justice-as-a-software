@@ -8,7 +8,6 @@ const schedule_schema = new mongoose.Schema({
     Date : String ,
     Strart : String ,
     End : String ,
-    Room : Number ,
     Connect : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "Case"

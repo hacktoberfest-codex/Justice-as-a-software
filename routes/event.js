@@ -12,5 +12,30 @@ router.get("/", async(req,res)=>{
     res.render("Home",{find_case})
 })
 
+router.get("/create",(req,res)=>{
+    res.render("create");
+})
+
+router.post("/create/case", async(req,res)=>{
+    const push_case = new Case({
+        Name : req.body.Name,
+        Crime : req.body.Crime,
+        Respondent : req.body.Respondent,
+        Petioner : req.body.Petioner,
+        Case_Type : req.body.case_type
+    })
+
+    const push_algo = new Algo({
+        Priority : req.body.Priority,
+        Deadline : req.body.Deadline
+    })
+
+    push_algo.Connect = push_case
+
+    await push_case.save()
+    await push_algo.save()
+    res.redirect("/event")
+})
+
 module.exports = router;
 

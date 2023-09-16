@@ -19,6 +19,8 @@ const algo_schema = new mongoose.Schema({
         type : Boolean
     },
 
+    Deadline : String ,
+
     Connect : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "Case"

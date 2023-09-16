@@ -19,7 +19,7 @@ const case_schema = new mongoose.Schema({
 
     Petioner : String ,
 
-    Respondent : String,
+    Respondent : String ,
 
     Case_Type : String 
 })
