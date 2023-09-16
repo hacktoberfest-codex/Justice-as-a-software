@@ -51,15 +51,20 @@ router.get("/:id", async(req,res)=>{
 })
 
 router.get("/:id/evidence", async(req,res)=>{
-    const find_case = await Case.findById(req.params.id).populate("Evidence_Pet","Evidence_Res")
+    const find_Evidence_Res = await Evidence.find({Case : req.params.id , Belongings : "Respondent" });
+    const find_Evidence_Pet = await Evidence.find({Case : req.params.id , Belongings : "Petioner" });
+    const find_case = await Case.findById(req.params.id);
     let msg_1 = ""
     let msg_2 = ""
+
     if(!find_case.Evidence_Pet){
         msg_1 = "Empty"
+    }
+
+    if(!find_case.Evidence_Res){
         msg_2 = "Empty"
     }
-    console.log(find_case);
-    res.render("evidence",{find_case,msg_1,msg_2});
+    res.render("evidence",{find_case,find_Evidence_Res,find_Evidence_Pet,msg_1,msg_2});
 })
 
 router.get("/:id/evidence/new", async(req,res)=>{
@@ -73,7 +78,9 @@ router.post("/:id/evidence/post", upload.array("img") , async(req,res)=>{
         Belongings : req.body.Belongings ,
         Details : req.body.Details
     })
-    req.files && console.log(req.files[0].filename);
+    req.files && push_evidence.Images.push({url : req.files[0].path , filename : req.files[0].filename});
+    push_evidence.Case=find_case
+    await push_evidence.save();
     res.send("your")
 })
 

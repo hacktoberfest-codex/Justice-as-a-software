@@ -33,16 +33,6 @@ const case_schema = new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref : "Schedule"
     },
-
-    Evidence_Pet : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Evidence"
-    },
-
-    Evidence_Res : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "Evidence"
-    },
 })
 
 const Case = mongoose.model("Case",case_schema);

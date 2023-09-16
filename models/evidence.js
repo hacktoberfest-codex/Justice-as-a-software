@@ -18,6 +18,11 @@ const evidence_schema = new mongoose.Schema({
     },
 
     Details : String,
+
+    Case : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Case"
+    }
 })
 
 const Evidence = mongoose.model("Evidence",evidence_schema)
