@@ -29,7 +29,6 @@
                 <div class="col navbar-nav">
                     <a class="nav-link nav-link-hover" aria-current="page" href="/event/create">CREATE</a>
                     <a class="nav-link" href="/event/Schedule">SCHEDULE</a>
-                    <a class="nav-link" href="/event/Data">DATA</a>
                     <a class="nav-link" href="/event/Calandar">CALENDER</a>
                 </div>
                 <div class="col-md-4 d-lg-flex justify-content-sm-end">
@@ -87,7 +86,7 @@
                         <div>Petioner: <%= find_case.Petioner %></div>
                         <div>Respondent : <%= find_case.Respondent %></div>
                         <div>Case_Type  : <%= find_case.Case_Type %></div>
-                        <a class="icon-link icon-link-hover" href="#">
+                        <a class="icon-link icon-link-hover" href="/event/<%= find_case._id %>/evidence">
                             Evidence
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
                                 viewBox="0 0 16 16">

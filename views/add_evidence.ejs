@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create</title>
+    <title>Add Evidence</title>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+ 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/hello.css">
 
@@ -34,7 +35,7 @@
                     <div class="col-md-4 d-lg-flex justify-content-sm-end">
                         <form class="d-flex py-0 rounder-pill" role="search">
                             <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
-                            <button class="btn btn-info" id="button" type="searcht">Search</button>
+                            <button class="btn btn-info" id="button" type="search">Search</button>
                             <img class="sw-logo" src="https://cdnbbsr.s3waas.gov.in/s388ef51f0bf911e452e8dbb1d807a81ab/uploads/2020/05/2020052969.png" alt="ecourts logo" width="50">
                         </form>
                     </div>
@@ -42,58 +43,32 @@
             </div>
         </div>
     </nav>
+    
+</head>
 
-    <section class="container-fluid"></section>
-    <div class="sign-up-form">
-        <img>
-        <h1>Creating Case Form</h1>
-        <hr>
+<body>
+    <section class="container-fluid">
+        <div class="sign-up-form">
+            <h1>Adding Evidence Form</h1>
+            <hr>
+            <form action="/event/<%= find_case._id %>/evidence/post" enctype="multipart/form-data" method="post">
+                <label for="belonging" class="form-label">Belongings: </label>
+                
+                <select class="select-box" name="Belongings" id="belongings">
+                    <option value="Petioner">Petioner</option>
+                    <option value="Respondent">Respondent</option>
+                </select>
 
-        <form action="/event/create/case" method="post">
-            <label for="case_name" name="Name">Case Name : </label>
-            <input type="text" id="case_name" class="input-box" placeholder="case_name" name="Name">
-
-            <label for="crime">Crime Type : </label>
-            <select class="select-box" id="crime" name="Crime">
-                <option value="Civil">Civil</option>
-                <option value="Criminal">Criminal</option>
-            </select>
-
-            <label for="Case-Type">Case description :</label>
-            <input type="text" name="Case_Type">
-
-            <label for="room">Room : </label>
-            <select class="select-box" id="room" name="Room">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
+                <label for="Details">Description: </label>
+                <input type="text" class="input-box" name="Details" id="Details" placeholder="Details">
             
-            <label for="priority">Priority : </label>
-            <select class="select-box" id="priority" name="Priority">
-                <option value="Quick - High Priority">Quick - High Priority</option>
-                <option value="Slow - Low Priority">Slow - Low Priority</option>
-            </select>
+                <label for="myfile">Select a file: </label>
+                <input type="file" class="choose-box" name="img" id="myfile">
 
-            <label for="deadline">Deadline : </label>
-            <select class="select-box" id="deadline" name="Deadline">
-                <option value="6-months">Six - Months</option>
-                <option value="1-year">One - Year</option>
-                <option value="2-year">Two - Year</option>
-            </select>
-
-            
-            <label for="Petioner">Petioner</label>
-            <input type="text" name="Petioner" placeholder="Petioner" class="input-box">
-
-            <label for="Respondent">Respondent</label>
-            <input type="text" name="Respondent" placeholder="Respondent" class="input-box">
-            
-            <p><span><input type="checkbox" required></span> I have read and agreed to the <span id="terms">Terms and Conditions</span> of services.</p> 
-
-            <button class="submit">Submit</button>
-        </form>
-    </div>
+                <p><span><input type="checkbox" required></span> I have read and agreed to the <span id="terms">Terms and Conditions</span> of services.</p> 
+                <button class="submit">Submit</button>            
+            </form>
+        </div>
     </section>
 
     <footer id="mainFooter" class="footer">
@@ -114,8 +89,6 @@
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  
 </body>
 </html>

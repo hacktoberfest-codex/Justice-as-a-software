@@ -22,8 +22,8 @@ let day = [
 let get_data = [];
 
 router.get("/Schedule", async(req,res)=>{
-    const find_case = await Case.find().populate("Schedule");
-    console.log(find_case);
+    const find_schedule = await Schedule.find({});
+    const find_case = await Case({_id : find_schedule.Case})
     res.render("listing",{find_case});
 })
 
@@ -65,6 +65,7 @@ router.post("/create/case", async(req,res)=>{
 
     push_case.Algo = push_algo
     push_case.Schedule = push_schedule
+    push_schedule.Case=push_case
 
     await push_case.save()
     await push_algo.save()
@@ -74,7 +75,6 @@ router.post("/create/case", async(req,res)=>{
 
 router.get("/:id", async(req,res)=>{
     const find_case = await Case.findById(req.params.id).populate("Algo");
-    console.log(find_case);
     res.render("show",{find_case})
 })
 
@@ -92,12 +92,13 @@ router.get("/:id/evidence", async(req,res)=>{
     if(!find_case.Evidence_Res){
         msg_2 = "Empty"
     }
-    res.render("evidence",{find_case,find_Evidence_Res,find_Evidence_Pet,msg_1,msg_2});
+    console.log(find_Evidence_Pet.Images,find_Evidence_Res.Images);
+    res.render("ShowEvidence",{find_case,find_Evidence_Res,find_Evidence_Pet,msg_1,msg_2});
 })
 
 router.get("/:id/evidence/new", async(req,res)=>{
     const find_case = await Case.findById(req.params.id)
-    res.render("AddEvidence",{find_case})
+    res.render("add_evidence",{find_case})
 })
 
 router.post("/:id/evidence/post", upload.array("img") , async(req,res)=>{

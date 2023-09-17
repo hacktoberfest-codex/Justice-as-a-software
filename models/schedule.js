@@ -8,7 +8,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/hack')
 const schedule_schema = new mongoose.Schema({
     Date : String ,
     Start : String ,
-    End : String
+    End : String ,
+    Case : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Case"
+    }
 })
 
 schedule_schema.statics.SearchAndAdd = async function(dates){

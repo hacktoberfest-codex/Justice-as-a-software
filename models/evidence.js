@@ -5,12 +5,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/hack')
     .catch(err=> console.log("evidence Connection Error"));
 
 const evidence_schema = new mongoose.Schema({
-    Images : [
+    Images : 
         {
             url : String,
             filename : String
-        }
-    ],
+        },
 
     Belongings : {
         type : String,
