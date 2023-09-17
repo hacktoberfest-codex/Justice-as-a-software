@@ -51,22 +51,25 @@
             </div>
         </div>
         <div class="container mb-5 pb-5">
-            <div class="row mb-5 pb-5">
+            <% for( let i of find_schedule ) { %>
+            
                 <div class="row mb-5 pb-5">
-                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
-                        id="heading">
-                        <%= find_case.Name %></div>
-                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
-                        id="heading">
-                        <%= find_case.Schedule.Date %></div>
-                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
-                        id="heading">
-                        <%= find_case.Schedule.Start %>></div>
-                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
-                        id="heading">
-                        <%= find_case.Schedule.End %></div>
+                    <div class="row mb-5 pb-5">
+                        <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                            id="heading">
+                            <%= i.Case.Name %></div>
+                        <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                            id="heading">
+                            <%= i.Date %></div>
+                        <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                            id="heading">
+                            <%= i.Start %>></div>
+                        <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                            id="heading">
+                            <%= i.End %></div>
+                    </div>
                 </div>
-            </div>
+            <% } %>
         </div>
         <br>
     </section><br>

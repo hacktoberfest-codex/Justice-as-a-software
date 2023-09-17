@@ -22,9 +22,8 @@ let day = [
 let get_data = [];
 
 router.get("/Schedule", async(req,res)=>{
-    const find_schedule = await Schedule.find({});
-    const find_case = await Case({_id : find_schedule.Case})
-    res.render("listing",{find_case});
+    const find_schedule = await Schedule.find({}).populate("Case");
+    res.render("listing",{find_schedule});
 })
 
 router.get("/Calandar",(req,res)=>{
