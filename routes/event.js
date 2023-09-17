@@ -30,6 +30,10 @@ router.get("/create",(req,res)=>{
     res.render("create");
 })
 
+router.get("/Calandar",(req,res)=>{
+    res.render("calender")
+})
+
 router.post("/create/case", async(req,res)=>{
     const push_case = new Case({
         Name : req.body.Name,

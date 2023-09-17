@@ -1,0 +1,234 @@
+html,
+body{
+    height: 100%;
+}
+body{
+    background-color: #f6fafd;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+a {
+    color: #4ca2fe;
+    text-decoration: none;
+}
+
+#mainNav{
+    font-size: 1.25rem;
+    font-weight: 100;
+}
+
+#mainNav .nav-link{
+    color:white;
+    transition: 0.5s;
+}
+#mainNav .nav-link:hover{
+    color:black;
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 700px;
+    text-shadow: 10px;
+}
+
+h1{
+    font: weight 300px;
+    font-size: 2rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: rgb(70, 96, 121);
+    text-shadow: 20px;
+}
+
+h3{
+    font: weight 300px;
+    font-size: 1.5rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: rgb(54, 60, 66);
+    text-shadow: 20px;
+}
+
+.policies{
+    font-size: 0.9rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#table{
+    color: black;
+    font-weight:200px;
+    font-size: 1.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#mainNav button{
+    border-radius:25px;
+    transition: 0.25s;
+}
+
+#mainNav button:hover{
+    background: #1c8adb;
+    color: white;
+    font-weight: 600px;
+}
+
+.sign-up-form{
+    width: 500px;
+    box-shadow:  0 0 3px 0 rgba(0, 0, 0, 0 ,3);
+    background: #f9f4f4;
+    padding: 20px;
+    margin: 8% auto 0;
+    justify-content: center;
+}
+
+.sign-up-form h1{
+    color: #1c8adb;
+    margin-bottom: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+#paragraph{
+    text-align: justify;
+    text-justify: inter-word;
+    justify-content: center;
+}
+
+#terms{
+    color: red;
+}
+
+.input-box{
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+.select-box{
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+
+.choose-box{
+    border-radius: 17px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+    background:white;
+}
+
+.submit{
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #6fc7fe;
+    transition: 0.5s;
+} 
+
+.submit:hover{
+    background:#4ca2fe;
+    box-shadow: 0.5em       0.5em   0.5em       -0.4em       #0140fd;
+    transform: translateY(-0.25em); /*moves a  bit upward*/
+    cursor: pointer; /*makes the cursor look like a hand with a finger pointing towards the button*/
+}
+
+hr{
+    margin-top: 20px;
+    size: 100%;
+}
+
+input[type="file"]::file-selector-button{
+    padding: 0.2rem 0.4rem;
+    border: none;
+    border-radius: 10rem;
+    background-color:rgb(255, 250, 250);
+    transition: 1s;
+}
+
+input[type="file"]::file-selector-button:hover{
+    border: none;
+    background-color: #d4bfbf;
+}
+
+.calender{
+    justify-items: center;
+    text-align: center;
+    box-shadow:  0 0 3px 0 rgba(0, 0, 0, 0 ,3);
+    background: #f9f4f4;
+    padding: 20px;
+    margin: 8% auto 0;
+}
+
+#mainFooter {
+    background-color: #e1e1e1;
+    color: #fff;
+    margin-top: 100px;
+    transition: 0.25s;
+
+}
+
+#mainFooter .menu-item:hover{
+    color:white;
+    font-size:medium;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-shadow:0.5em       0.5em   0.5em       -0.4em      white;
+    transform: translateY(-0.15em); /*moves a  bit upward*/
+    cursor: pointer; 
+}
+
+#mainFooter .footer-top {
+    background-color: #2a2a2a;
+    padding: 12px 0
+}
+
+#mainFooter .footer-top ul li a {
+    color: #fff
+}
+
+#mainFooter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+#mainFooter ul li {
+    display: inline-block;
+    position: relative;
+    padding: 0
+}
+
+#mainFooter ul li a {
+    display: inline-block;
+    color: #000
+}
+
+#mainFooter ul li:after {
+    display: inline-block;
+    content: "/";
+    margin: 0 10px;
+    color: #fff
+}
+
+#mainFooter ul li:last-child:after {
+    content: none
+}
+
+@media(max-width: 1200px){
+    #headline h1{
+        font-weight: 100;
+        font-size: 3rems;
+    }
+}
