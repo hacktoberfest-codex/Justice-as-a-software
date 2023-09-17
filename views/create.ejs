@@ -49,31 +49,35 @@
         <img>
         <h1>Creating Case Form</h1>
         <hr>
+
         <form action="/event/create/case" method="post">
             <label for="case_name" name="Name">Case Name : </label>
-            <input type="text" id="case_name" class="input-box" placeholder="case_name">
+            <input type="text" id="case_name" class="input-box" placeholder="case_name" name="Name">
 
             <label for="crime">Crime Type : </label>
             <select class="select-box" id="crime" name="Crime">
-                <option value="civil">Civil</option>
-                <option value="criminal">Criminal</option>
+                <option value="Civil">Civil</option>
+                <option value="Criminal">Criminal</option>
             </select>
 
+            <label for="Case-Type">Case description :</label>
+            <input type="text" name="Case_Type">
+
             <label for="room">Room : </label>
-            <select class="select-box" id="room">
+            <select class="select-box" id="room" name="Room">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select>
             
             <label for="priority">Priority : </label>
-            <select class="select-box" id="priority">
+            <select class="select-box" id="priority" name="Priority">
                 <option value="Quick - High Priority">Quick - High Priority</option>
                 <option value="Slow - Low Priority">Slow - Low Priority</option>
             </select>
 
             <label for="deadline">Deadline : </label>
-            <select class="select-box" id="deadline">
+            <select class="select-box" id="deadline" name="Deadline">
                 <option value="6-months">Six - Months</option>
                 <option value="1-year">One - Year</option>
                 <option value="2-year">Two - Year</option>
@@ -87,7 +91,8 @@
             <input type="text" name="Respondent" placeholder="Respondent" class="input-box">
             
             <p><span><input type="checkbox" required></span> I have read and agreed to the <span id="terms">Terms and Conditions</span> of services.</p> 
-            <button type="button" class="submit">Submit</button>
+
+            <button class="submit">Submit</button>
         </form>
     </div>
     </section>

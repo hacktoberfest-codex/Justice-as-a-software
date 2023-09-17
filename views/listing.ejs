@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="hello.css">
+</head>
+
+<body>
+
+    <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top py-0" style="background-color: #bcdff7;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/188px-Emblem_of_India.svg.png"
+                    width="45" height="55" alt="home"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLink"
+                aria-controls="navLink" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="row collapse navbar-collapse" id="navLink">
+                <div class="col navbar-nav">
+                    <a class="nav-link nav-link-hover" aria-current="page" href="/event/create">CREATE</a>
+                    <a class="nav-link" href="/event/Schedule">SCHEDULE</a>
+                    <a class="nav-link" href="/event/Data">DATA</a>
+                    <a class="nav-link" href="/event/Calandar">CALENDER</a>
+                </div>
+                <div class="col-md-4 d-lg-flex justify-content-sm-end">
+                    <form class="d-flex py-0 rounder-pill" role="search">
+                        <input class="form-control me-2" type="search" placeholder="search" aria-label="Search">
+                        <button class="btn btn-info border-pill" id="button" type="searcht">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <section class="container-fluid">
+        <div class="row text-center mt-5 pt-5 ">
+            <div class="col my-3 py-3">
+                <h1 class="display-3"> List of people in court session</h1>
+            </div>
+        </div>
+        <div class="container mb-5 pb-5">
+            <div class="row mb-5 pb-5">
+                <div class="row mb-5 pb-5">
+                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                        id="heading">
+                        <%= find_case.Name %></div>
+                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                        id="heading">
+                        <%= find_case.Schedule.Date %></div>
+                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                        id="heading">
+                        <%= find_case.Schedule.Start %>></div>
+                    <div class="col text-center border border-dark-subtle " style="background-color:#d6e2ea;"
+                        id="heading">
+                        <%= find_case.Schedule.End %></div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section><br>
+    <footer id="mainFooter" class="footer ">
+        <div class="footer-top">
+            <div class="container">
+                <div class="col-xs-12 text-center">
+                    <div class="footerMenu">
+                        <ul id="menu-footer-en" class="menu">
+                            <li id="menu-item" class="menu-item"><a href="1">About Us</a></li>
+                            <li id="menu-item" class="menu-item"><a href="2">Contact Us</a></li>
+                            <li id="menu-item" class="menu-item "><a href="3">Feedback</a></li>
+                            <li id="menu-item" class="menu-item"><a href="4">Web Policy</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

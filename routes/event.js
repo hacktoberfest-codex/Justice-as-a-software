@@ -21,6 +21,16 @@ let day = [
 
 let get_data = [];
 
+router.get("/Schedule", async(req,res)=>{
+    const find_case = await Case.find().populate("Schedule");
+    console.log(find_case);
+    res.render("listing",{find_case});
+})
+
+router.get("/Calandar",(req,res)=>{
+    res.render("calender");
+})
+
 router.get("/", async(req,res)=>{
     const find_case = await Case.find({})
     res.render("Home",{find_case})
@@ -28,10 +38,6 @@ router.get("/", async(req,res)=>{
 
 router.get("/create",(req,res)=>{
     res.render("create");
-})
-
-router.get("/Calandar",(req,res)=>{
-    res.render("calender")
 })
 
 router.post("/create/case", async(req,res)=>{
@@ -50,9 +56,6 @@ router.post("/create/case", async(req,res)=>{
 
     get_data.push(await Schedule.SearchAndAdd(day));
     get_data.push(push_case.Name);
-
-    console.log("***");
-    console.log(get_data);
 
     const push_schedule = new Schedule({
         Date : get_data[0].format("YYYY-MM-DD"),

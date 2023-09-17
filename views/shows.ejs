@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1><%= find_case.Name %></h1>
+
+    <h3>Countdown</h3>
+
+    <h3>Objections per session</h3>
+    <p>Lawyer 1 : 3 <button>Warning</button></p>
+    <p>Lawyer 2 : 3 <button>Warning</button></p>
+
+    <button>reset</button>
+
+    <div>
+        <div>Crime : <%= find_case.Crime %></div>
+        <div>Status : <%= find_case.Status %></div>
+        <div>Hearing : <%= find_case.Hearing %></div>
+        <div>Priority : <%= find_case.Algo.Priority %></div>
+        <div>Petioner : <%= find_case.Petioner %> </div>
+        <div>Respondent : <%= find_case.Respondent %></div>
+        <div>Case_Type : <%= find_case.Case_Type %></div>
+    </div>
+
+    <a href="/event/<%= find_case._id %>/evidence">Evidence</a>
+
+</body>
+</html>
