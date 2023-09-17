@@ -33,7 +33,27 @@ router.get("/redirect", async (req,res)=>{
     const {code} = req.query;
     const {tokens} = await oauth2Client.getToken(code)
     oauth2Client.setCredentials(tokens)
-    res.redirect("/google/EventDetails")
+    res.redirect("/google/ScheduleEvent")
+})
+
+router.get("/ScheduleEvent",async(req,res)=>{
+    await calendar.events.insert({
+        calendarId : "primary",
+        auth : oauth2Client,
+        requestBody : {
+            summary : "This is a test event",
+            description : "Some imp event",
+            start : {
+                dateTime : dayjs(new Date()).add(1,"day").toISOString(),
+                timeZone : "Asia/Kolkata"
+            },
+            end : {
+                dateTime : dayjs(new Date()).add(1,"day").add(2,"hour").toISOString(),
+                timeZone: "Asia/Kolkata"
+            },
+        }
+    })
+    res.send("working_2!!")
 })
 
 router.get("/EventDetails",async(req,res)=>{

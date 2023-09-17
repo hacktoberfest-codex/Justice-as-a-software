@@ -12,7 +12,12 @@ const multer = require("multer")
 
 const upload = multer({storage})
 
-const day = []
+const day = [
+    {
+        date : "2023-09-17",
+        slots : 6
+    }
+]
 
 router.get("/", async(req,res)=>{
     const find_case = await Case.find({})
@@ -36,6 +41,8 @@ router.post("/create/case", async(req,res)=>{
         Priority : req.body.Priority,
         Deadline : req.body.Deadline
     })
+
+    day.push(await Schedule.SearchAndAdd())
 
     push_case.Algo = push_algo
 
