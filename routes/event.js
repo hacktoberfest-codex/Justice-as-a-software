@@ -8,16 +8,18 @@ const Schedule = require("../models/schedule");
 const Evidence = require("../models/evidence");
 
 const dayjs = require("dayjs");
-const multer = require("multer")
+const multer = require("multer");
 
 const upload = multer({storage})
 
-const day = [
+let day = [
     {
         date : "2023-09-17",
         slots : 6
     }
 ]
+
+let get_data = [];
 
 router.get("/", async(req,res)=>{
     const find_case = await Case.find({})
@@ -42,13 +44,25 @@ router.post("/create/case", async(req,res)=>{
         Deadline : req.body.Deadline
     })
 
-    day.push(await Schedule.SearchAndAdd())
+    get_data.push(await Schedule.SearchAndAdd(day));
+    get_data.push(push_case.Name);
+
+    console.log("***");
+    console.log(get_data);
+
+    const push_schedule = new Schedule({
+        Date : get_data[0].format("YYYY-MM-DD"),
+        Start : get_data[0].format("HH-mm"),
+        End : get_data[0].add(1,"hour").format("HH-mm")
+    })
 
     push_case.Algo = push_algo
+    push_case.Schedule = push_schedule
 
     await push_case.save()
     await push_algo.save()
-    res.redirect("/event")
+    await push_schedule.save()
+    res.redirect("/google")
 })
 
 router.get("/:id", async(req,res)=>{
@@ -91,5 +105,8 @@ router.post("/:id/evidence/post", upload.array("img") , async(req,res)=>{
     res.redirect("/event")
 })
 
-module.exports = router;
+module.exports = {
+    router,
+    get_data
+}
 

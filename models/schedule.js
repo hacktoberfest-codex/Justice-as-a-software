@@ -7,40 +7,59 @@ mongoose.connect('mongodb://127.0.0.1:27017/hack')
 
 const schedule_schema = new mongoose.Schema({
     Date : String ,
-    Strart : String ,
+    Start : String ,
     End : String
 })
 
-schedule_schema.statics.SearchAndAdd = async function(){
-    console.log(dayjs());
-}
-
-check = [
-    {
-        date : "2023-09-17",
-        slots : 6
-    }
-]
-
-let day = dayjs().set("hour",10).set("minute",30)
-let temp 
-let placed = false;
-for(let i of check){
-    let day_2 = dayjs(i.date).format("DD-MM")
-    if(day.format("DD-MM") === day_2){ //events exist 
-        if(slots!==0){ //slot free
-            console.log("push_1");
+schedule_schema.statics.SearchAndAdd = async function(dates){
+    let day = dayjs().add(4,"day").set("hour",10).set("minute",30);
+    console.log(day);
+    console.log(dates);
+    let placed = false;
+    for(let i of dates){
+        let day_2 = dayjs(i.date).format("DD-MM")
+        if(day.format("DD-MM") === day_2){ //events exist 
+            if(i.slots!==0){ //slot free
+                placed = true;
+                console.log("hello");
+                day = dayjs(i.date).set("hour",10+(6-i.slots)).set("minute",30)
+                i.slots--
+            }
         }
     }
-}
-let i=0;
-while(!placed){
-    day = dayjs(day).add(i,"day")
-    for(let i of check){
-        if(day.day()!=0 && i.slots!==0){
-            console.log("push");
+
+    if(!placed){
+        let escape = false
+        for(let j=1 ; j<=dates.length ; j++){ //diff day events
+            for(let i of dates){
+                let date_1 = dayjs(day).format("YYYY-MM-DD")
+                let date_2 = dayjs(i.date).format("YYYY-MM-DD")
+                if(day.day()!==0 && date_1===date_2 && i.slots!==0){
+                    placed = true;
+                    console.log("hello");
+                    day = day.set("hour",10+(6-i.slots)).set("minute",30)
+                    i.slots--
+                    escape = true
+                    break;
+                }
+            }
+            if(!escape){
+                day = dayjs(day).add(1,"day")
+            }
         }
     }
+
+    if(!placed){
+        if(day.day() === 0){
+            day = dayjs(day).add(1,"day").set("hour",10).set("minute",30)
+        }
+        console.log("hii");
+        dates.push({
+            date : day.format("YYYY-MM-DD"),
+            slots : 5
+        })
+    }
+    return day
 }
 
 const Schedule = mongoose.model("Schedule",schedule_schema)

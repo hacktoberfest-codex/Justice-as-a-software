@@ -4,7 +4,7 @@ const path = require("path")
 require("dotenv").config()
 
 const calandar = require("./routes/calandar");
-const event = require("./routes/event")
+const {router} = require("./routes/event")
 
 app.use(express.urlencoded({extended : true}));
 
@@ -14,7 +14,7 @@ app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
 
 app.use("/google",calandar)
-app.use("/event",event)
+app.use("/event",router)
 
 app.listen(3000,()=>{
     console.log("Listening on PORT 3000");

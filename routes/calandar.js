@@ -4,6 +4,8 @@ const {google} = require("googleapis")
 const dayjs = require("dayjs")
 require("dotenv").config()
 
+const {get_data} = require("./event")
+
 const calendar = google.calendar({
     version : "v3",
     auth : process.env.API_KEY
@@ -29,31 +31,32 @@ router.get("/",(req,res)=>{
     res.redirect(url);
 })
 
-router.get("/redirect", async (req,res)=>{
-    const {code} = req.query;
-    const {tokens} = await oauth2Client.getToken(code)
-    oauth2Client.setCredentials(tokens)
-    res.redirect("/google/ScheduleEvent")
-})
-
-router.get("/ScheduleEvent",async(req,res)=>{
+Set_Event = async(get_data)=>{
     await calendar.events.insert({
         calendarId : "primary",
         auth : oauth2Client,
         requestBody : {
-            summary : "This is a test event",
+            summary : get_data[1],
             description : "Some imp event",
             start : {
-                dateTime : dayjs(new Date()).add(1,"day").toISOString(),
+                dateTime : dayjs(get_data[0]).toISOString(),
                 timeZone : "Asia/Kolkata"
             },
             end : {
-                dateTime : dayjs(new Date()).add(1,"day").add(2,"hour").toISOString(),
+                dateTime : dayjs(get_data[0]).add(1,"hour").toISOString(),
                 timeZone: "Asia/Kolkata"
             },
         }
     })
-    res.send("working_2!!")
+    get_data.splice(0, get_data.length)
+}
+
+router.get("/redirect", async (req,res)=>{
+    const {code} = req.query;
+    const {tokens} = await oauth2Client.getToken(code)
+    oauth2Client.setCredentials(tokens)
+    Set_Event(get_data)
+    res.redirect("/event")
 })
 
 router.get("/EventDetails",async(req,res)=>{
